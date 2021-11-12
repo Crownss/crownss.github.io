@@ -9,6 +9,7 @@ const desc =
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   telemetry: true,
+  mode: 'spa',
   target: 'static',
   head: {
     titleTemplate: '%s | ' + title,
