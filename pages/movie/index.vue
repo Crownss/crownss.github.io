@@ -40,7 +40,7 @@
               target="_blank"
               outlined
               nuxt
-              :to="value.url"
+              :href="value.url"
               >Goto Link</v-chip
             >
             <v-spacer />
