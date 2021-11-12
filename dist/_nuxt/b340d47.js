@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[16],{511:function(n,e,o){"use strict";o.r(e);var t=o(72),l=o(115),r=o.n(l),c=o(501),component=Object(t.a)({},(function(){var n=this,e=n.$createElement,o=n._self._c||e;return o("v-row",[o("h3",[n._v("Coming soon....")])])}),[],!1,null,null,null);e.default=component.exports;r()(component,{VRow:c.a})}}]);
