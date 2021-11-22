@@ -2,17 +2,17 @@
   <v-row>
     <h3>
       I'm use
-      <a class="nuxt" href="https://google.com"
+      <a class="nuxt" href="https://nuxtjs.org"
         >Nuxt Js <v-icon small color="cyan darken-2">mdi-nuxt</v-icon></a
       >
       as frontend, and use
-      <a class="django" href="https://golang.org"
+      <a class="django" href="https://djangoproject.com"
         >Django<v-icon small color="yellowx darken-2"
           >mdi-language-python</v-icon
         ></a
       >
       as backend, and dont forget
-      <a class="postgres" href="http://google.com"
+      <a class="postgres" href="https://postgresql.org"
         >Postgres<v-icon small color="blue darken-2">mdi-elephant</v-icon></a
       >
       as database

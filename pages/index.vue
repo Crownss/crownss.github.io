@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <v-app dark>
     <v-text-field
       v-model="search"
@@ -25,9 +25,19 @@
             <v-card-title>{{ value.title }}</v-card-title>
           </v-img>
 
+          <v-card-subtitle class="pb-0">Type: {{ value.type }}</v-card-subtitle>
           <v-card-subtitle class="pb-0"
-            >{{ formatDate(value.CreatedAt) }}
-          </v-card-subtitle>
+            >Episode: {{ value.episodes }}</v-card-subtitle
+          >
+          <v-card-subtitle class="pb-0"
+            >Score: {{ value.score }}</v-card-subtitle
+          >
+          <v-card-subtitle class="pb-5"
+            >Release:
+            {{
+              $moment(value.start_date).format('ddd, DD-M-YYYY')
+            }}</v-card-subtitle
+          >
 
           <v-card-text class="text--primary">
             <div>{{ value.synopsis }}</div>
@@ -42,7 +52,7 @@
               target="_blank"
               outlined
               nuxt
-              :to="value.url"
+              :href="value.url"
               >Goto Link</v-chip
             >
             <v-spacer />
@@ -55,18 +65,20 @@
 
 <script>
 import sanitizeHtml from 'sanitize-html'
+import lodash from 'lodash'
 export default {
   data() {
     return {
       getAllDB: [],
       search: '',
+      slug: this.$route.params.slug,
     }
   },
 
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {
-        return db.title.match(this.search) || db.desc.match(this.search)
+        return db.title.match(this.search)
       })
     },
   },
@@ -81,27 +93,13 @@ export default {
   },
   methods: {
     async getProduct() {
-      await this.$axios
-        .get(`https://api.jikan.moe/v3/search/anime?q=one%20piece`)
-        .then((response) => {
-          this.getAllDB = response.data.results
-          console.log(response.data.results)
-        })
-        .catch((error) => console.log(error))
-    },
-    formatDate(date) {
-      const option = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('id', option)
+      await this.$axios.get(process.env.HOME).then((response) => {
+        this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+      })
     },
     sanitize() {
-      return sanitizeHtml(this.searchResult())
+      return sanitizeHtml(this.searchResult)
     },
   },
 }
 </script>
--->
-<template>
-  <v-row>
-    <h3>Coming soon....</h3>
-  </v-row>
-</template>

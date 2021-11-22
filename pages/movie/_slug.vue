@@ -53,6 +53,7 @@
 
 <script>
 import sanitizeHtml from 'sanitize-html'
+import lodash from 'lodash'
 export default {
   data() {
     return {
@@ -81,14 +82,10 @@ export default {
   methods: {
     async getProduct() {
       await this.$axios
-        .get(`https://api.jikan.moe/v3/search/anime?q=movie&page=` + this.slug)
+        .get(process.env.MOVIE_SLUG + this.slug)
         .then((response) => {
-          this.getAllDB = response.data.results
+          this.getAllDB = lodash.sortBy(response.data.results, ['title'])
         })
-    },
-    formatDate(date) {
-      const option = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('id', option)
     },
     sanitize() {
       return sanitizeHtml(this.searchResult)

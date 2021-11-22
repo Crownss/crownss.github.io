@@ -29,14 +29,8 @@
           <v-card-subtitle class="pb-0"
             >Episode: {{ value.episodes }}</v-card-subtitle
           >
-          <v-card-subtitle class="pb-0"
-            >Rated: {{ value.rated }}</v-card-subtitle
-          >
           <v-card-subtitle class="pb-5"
-            >Release:
-            {{
-              $moment(value.start_date).format('ddd, DD-M-YYYY')
-            }}</v-card-subtitle
+            >Score: {{ value.score }}</v-card-subtitle
           >
 
           <v-card-text class="text--primary">
@@ -71,7 +65,6 @@ export default {
     return {
       getAllDB: [],
       search: '',
-      date: '',
       slug: this.$route.params.slug,
     }
   },
@@ -94,9 +87,11 @@ export default {
   },
   methods: {
     async getProduct() {
-      await this.$axios.get(process.env.ONGOING).then((response) => {
-        this.getAllDB = lodash.sortBy(response.data.results, ['title'])
-      })
+      await this.$axios
+        .get(process.env.HOME_SLUG + this.slug)
+        .then((response) => {
+          this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+        })
     },
     sanitize() {
       return sanitizeHtml(this.searchResult)

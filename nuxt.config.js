@@ -8,6 +8,13 @@ const desc =
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  env: {
+    HOME: process.env.home,
+    HOME_SLUG: process.env.home_slug,
+    MOVIE: process.env.movie,
+    MOVIE_SLUG: process.env.movie_slug,
+    ONGOING: process.env.ongoing,
+  },
   telemetry: true,
   mode: 'spa',
   target: 'static',
@@ -157,7 +164,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/devalue',
     '@dansmaculotte/nuxt-security',
-    '@nuxt/devalue',
+    '@nuxtjs/moment',
     [
       '@nuxtjs/google-analytics',
       {

@@ -94,9 +94,11 @@ export default {
   },
   methods: {
     async getProduct() {
-      await this.$axios.get(process.env.ONGOING).then((response) => {
-        this.getAllDB = lodash.sortBy(response.data.results, ['title'])
-      })
+      await this.$axios
+        .get(process.env.ONGOING_SLUG + this.slug)
+        .then((response) => {
+          this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+        })
     },
     sanitize() {
       return sanitizeHtml(this.searchResult)

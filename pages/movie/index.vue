@@ -25,7 +25,13 @@
             <v-card-title>{{ value.title }}</v-card-title>
           </v-img>
 
-          <!-- <v-card-subtitle class="pb-0"> </v-card-subtitle> -->
+          <v-card-subtitle class="pb-0">Type: {{ value.type }}</v-card-subtitle>
+          <v-card-subtitle class="pb-0"
+            >Episode: {{ value.episodes }}</v-card-subtitle
+          >
+          <v-card-subtitle class="pb-5"
+            >Score: {{ value.score }}</v-card-subtitle
+          >
 
           <v-card-text class="text--primary">
             <div>{{ value.synopsis }}</div>
@@ -53,6 +59,7 @@
 
 <script>
 import sanitizeHtml from 'sanitize-html'
+import lodash from 'lodash'
 export default {
   data() {
     return {
@@ -80,15 +87,9 @@ export default {
   },
   methods: {
     async getProduct() {
-      await this.$axios
-        .get(`https://api.jikan.moe/v3/search/anime?q=movie`)
-        .then((response) => {
-          this.getAllDB = response.data.results
-        })
-    },
-    formatDate(date) {
-      const option = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('id', option)
+      await this.$axios.get(process.env.MOVIE).then((response) => {
+        this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+      })
     },
     sanitize() {
       return sanitizeHtml(this.searchResult)
