@@ -12,7 +12,7 @@
       <v-col
         v-for="(value, index) in (getAllDB, searchResult)"
         :key="index"
-        cols="10"
+        cols="12"
         no-gutters
         md="4"
       >
