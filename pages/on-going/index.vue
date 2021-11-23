@@ -32,6 +32,7 @@
           <v-card-subtitle class="pb-0"
             >Rated: {{ value.rated }}</v-card-subtitle
           >
+          <v-card-subtitle class="pb-0">Status: On-Going</v-card-subtitle>
           <v-card-subtitle class="pb-5"
             >Release:
             {{
@@ -52,6 +53,7 @@
               target="_blank"
               outlined
               nuxt
+              rel="noreferrer"
               :href="value.url"
               >Goto Link</v-chip
             >
@@ -75,7 +77,9 @@ export default {
       slug: this.$route.params.slug,
     }
   },
-
+  head: {
+    title: 'On-Going',
+  },
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {

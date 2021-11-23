@@ -52,6 +52,7 @@
               target="_blank"
               outlined
               nuxt
+              rel="noreferrer"
               :href="value.url"
               >Goto Link</v-chip
             >
@@ -75,7 +76,9 @@ export default {
       slug: this.$route.params.slug,
     }
   },
-
+  head: {
+    title: 'On-Going',
+  },
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {

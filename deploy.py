@@ -15,9 +15,9 @@ def main() -> os.system:
         input2 = input("commit for github pages(optional): ")
         if len(input2) == 0:
             input2 = "Deployed 🚀"
-            push2 = os.system('yarn master && git add -f dist && git commit -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
+            push2 = os.system('yarn master && git add -f dist && git commit -n -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
             return push2
-        push2 = os.system('yarn master && git add -f dist && git commit -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
+        push2 = os.system('yarn master && git add -f dist && git commit -n -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
         return push2
     elif choice == 3:
         input1 = input("commit for master: ")
@@ -27,10 +27,10 @@ def main() -> os.system:
         if len(input2) == 0:
             input2 = "Deployed 🚀"
             push3 = os.system('git add . && git commit -m \"'+input1+'\" && git push origin master')
-            push4 = os.system('yarn master && git add -f dist && git commit -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
+            push4 = os.system('yarn master && git add -f dist && git commit -n -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
             return push3, push4
         push3 = os.system('git add . && git commit -m \"'+input1+'\" && git push origin master')
-        push4 = os.system('yarn master && git add -f dist && git commit -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
+        push4 = os.system('yarn master && git add -f dist && git commit -n -m \"'+input2+'\"&& git subtree push --prefix dist web gh-pages')
         return push3, push4
     else:
         print("you not choose anything so i'll exit")

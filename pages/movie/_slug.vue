@@ -40,7 +40,8 @@
               target="_blank"
               outlined
               nuxt
-              :to="value.url"
+              rel="noreferrer"
+              :href="value.url"
               >Goto Link</v-chip
             >
             <v-spacer />
@@ -62,7 +63,9 @@ export default {
       slug: this.$route.params.slug,
     }
   },
-
+  head: {
+    title: 'Movie',
+  },
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {

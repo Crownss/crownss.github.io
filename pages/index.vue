@@ -6,13 +6,15 @@
       label="search"
       rounded
       danse
+      fixed
+      app
     ></v-text-field>
     <br />
     <v-row>
       <v-col
         v-for="(value, index) in (getAllDB, searchResult)"
         :key="index"
-        cols="10"
+        cols="12"
         no-gutters
         md="4"
       >
@@ -33,10 +35,8 @@
             >Score: {{ value.score }}</v-card-subtitle
           >
           <v-card-subtitle class="pb-5"
-            >Release:
-            {{
-              $moment(value.start_date).format('ddd, DD-M-YYYY')
-            }}</v-card-subtitle
+            >Completed on:
+            {{ $moment(value.start_date).fromNow() }}</v-card-subtitle
           >
 
           <v-card-text class="text--primary">
@@ -52,6 +52,7 @@
               target="_blank"
               outlined
               nuxt
+              rel="noreferrer"
               :href="value.url"
               >Goto Link</v-chip
             >
@@ -74,7 +75,6 @@ export default {
       slug: this.$route.params.slug,
     }
   },
-
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {

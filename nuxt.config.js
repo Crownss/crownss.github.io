@@ -14,6 +14,9 @@ export default {
     MOVIE: process.env.movie,
     MOVIE_SLUG: process.env.movie_slug,
     ONGOING: process.env.ongoing,
+    ONGOING_SLUG: process.env.ongoing_slug,
+    GOOGLE_ANALYSTICS: process.env.google_analystics,
+    GOOGLE_TAG_MANAGER: process.env.google_tag_manager,
   },
   telemetry: true,
   mode: 'spa',
@@ -168,10 +171,10 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        ua: 'G-JDRSB3CDLH',
+        ua: process.env.GOOGLE_ANALYSTICS,
       },
     ],
-    ['@nuxtjs/google-tag-manager', { id: 'GTM-5HX7DR9' }],
+    ['@nuxtjs/google-tag-manager', { id: process.env.GOOGLE_TAG_MANAGER }],
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -195,28 +198,28 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: 'http://localhost:8000/account/login',
-            method: 'post',
-            propertyName: 'token',
-          },
-          logout: {
-            url: 'http://localhost:8000account/logout',
-            method: 'delete',
-          },
-          user: {
-            url: '/sessions/users',
-            method: 'get',
-            propertyName: 'data.attributes',
-          },
-        },
-        tokenRequired: true,
-        tokenType: '',
-      },
-    },
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: 'http://localhost:8000/account/login',
+  //           method: 'post',
+  //           propertyName: 'token',
+  //         },
+  //         logout: {
+  //           url: 'http://localhost:8000account/logout',
+  //           method: 'delete',
+  //         },
+  //         user: {
+  //           url: '/sessions/users',
+  //           method: 'get',
+  //           propertyName: 'data.attributes',
+  //         },
+  //       },
+  //       tokenRequired: true,
+  //       tokenType: '',
+  //     },
+  //   },
+  // },
 }

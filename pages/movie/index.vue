@@ -29,8 +29,11 @@
           <v-card-subtitle class="pb-0"
             >Episode: {{ value.episodes }}</v-card-subtitle
           >
-          <v-card-subtitle class="pb-5"
+          <v-card-subtitle class="pb-0"
             >Score: {{ value.score }}</v-card-subtitle
+          >
+          <v-card-subtitle class="pb-5"
+            >Release: {{ $moment(value.start_date).fromNow() }}</v-card-subtitle
           >
 
           <v-card-text class="text--primary">
@@ -46,6 +49,7 @@
               target="_blank"
               outlined
               nuxt
+              rel="noreferrer"
               :href="value.url"
               >Goto Link</v-chip
             >
@@ -68,7 +72,9 @@ export default {
       slug: this.$route.params.slug,
     }
   },
-
+  head: {
+    title: 'Movie',
+  },
   computed: {
     searchResult() {
       return this.getAllDB.filter((db) => {

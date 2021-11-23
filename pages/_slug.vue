@@ -3,7 +3,7 @@
     <v-text-field
       v-model="search"
       outlined
-      label="search"
+      label="search search in Home"
       rounded
       danse
     ></v-text-field>
@@ -46,6 +46,7 @@
               target="_blank"
               outlined
               nuxt
+              rel="noreferrer"
               :href="value.url"
               >Goto Link</v-chip
             >
