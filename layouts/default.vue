@@ -3,9 +3,8 @@
     <v-container fluid>
       <v-app-bar fixed app>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-        <v-spacer />
         <v-toolbar-title v-text="title" />
+        <v-spacer />
         <v-spacer />
       </v-app-bar>
       <v-system-bar color="deep-purple darken-3"></v-system-bar>
