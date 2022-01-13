@@ -3,7 +3,7 @@
     <v-text-field
       v-model="search"
       outlined
-      label="search search in Home"
+      label="search"
       rounded
       danse
     ></v-text-field>
@@ -39,8 +39,6 @@
           <v-card-actions>
             <v-spacer />
             <v-chip
-              close
-              close-icon="mdi-open-in-new"
               color="blue"
               link
               target="_blank"
@@ -48,7 +46,7 @@
               nuxt
               rel="noreferrer"
               :href="value.url"
-              >Goto Link</v-chip
+              >Go to Link</v-chip
             >
             <v-spacer />
           </v-card-actions>
@@ -92,6 +90,11 @@ export default {
         .get(process.env.HOME_SLUG + this.slug)
         .then((response) => {
           this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+        })
+        .catch((e) => {
+          if (e.response.status === 404) {
+            return this.$nuxt.error({ statusCode: 404, message: e.message })
+          }
         })
     },
     sanitize() {

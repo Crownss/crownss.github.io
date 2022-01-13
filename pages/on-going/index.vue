@@ -46,8 +46,6 @@
           <v-card-actions>
             <v-spacer />
             <v-chip
-              close
-              close-icon="mdi-open-in-new"
               color="blue"
               link
               target="_blank"
@@ -55,7 +53,7 @@
               nuxt
               rel="noreferrer"
               :href="value.url"
-              >Goto Link</v-chip
+              >Go to Link</v-chip
             >
             <v-spacer />
           </v-card-actions>
@@ -98,9 +96,16 @@ export default {
   },
   methods: {
     async getProduct() {
-      await this.$axios.get(process.env.ONGOING).then((response) => {
-        this.getAllDB = lodash.sortBy(response.data.results, ['title'])
-      })
+      await this.$axios
+        .get(process.env.ONGOING)
+        .then((response) => {
+          this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+        })
+        .catch((e) => {
+          if (e.response.status === 404) {
+            return this.$nuxt.error({ statusCode: 404, message: e.message })
+          }
+        })
     },
     sanitize() {
       return sanitizeHtml(this.searchResult)

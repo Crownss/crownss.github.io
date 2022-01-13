@@ -25,19 +25,7 @@
             <v-card-title>{{ value.title }}</v-card-title>
           </v-img>
 
-          <v-card-subtitle class="pb-0">Type: {{ value.type }}</v-card-subtitle>
-          <v-card-subtitle class="pb-0"
-            >Episode: {{ value.episodes }}</v-card-subtitle
-          >
-          <v-card-subtitle class="pb-0"
-            >Rated: {{ value.rated }}</v-card-subtitle
-          >
-          <v-card-subtitle class="pb-5"
-            >Release:
-            {{
-              $moment(value.start_date).format('ddd, DD-M-YYYY')
-            }}</v-card-subtitle
-          >
+          <!-- <v-card-subtitle class="pb-0"> </v-card-subtitle> -->
 
           <v-card-text class="text--primary">
             <div>{{ value.synopsis }}</div>
@@ -45,8 +33,6 @@
           <v-card-actions>
             <v-spacer />
             <v-chip
-              close
-              close-icon="mdi-open-in-new"
               color="blue"
               link
               target="_blank"
@@ -54,7 +40,7 @@
               nuxt
               rel="noreferrer"
               :href="value.url"
-              >Goto Link</v-chip
+              >Go to Link</v-chip
             >
             <v-spacer />
           </v-card-actions>
@@ -72,12 +58,11 @@ export default {
     return {
       getAllDB: [],
       search: '',
-      date: '',
       slug: this.$route.params.slug,
     }
   },
   head: {
-    title: 'On-Going',
+    title: 'Movie',
   },
   computed: {
     searchResult() {
@@ -98,9 +83,14 @@ export default {
   methods: {
     async getProduct() {
       await this.$axios
-        .get(process.env.ONGOING_SLUG + this.slug)
+        .get(process.env.MOVIE_SLUG + this.slug)
         .then((response) => {
           this.getAllDB = lodash.sortBy(response.data.results, ['title'])
+        })
+        .catch((e) => {
+          if (e.response.status === 404) {
+            return this.$nuxt.error({ statusCode: 404, message: e.message })
+          }
         })
     },
     sanitize() {
