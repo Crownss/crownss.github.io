@@ -21,12 +21,32 @@
       </h3>
       <v-spacer />
     </v-row>
+        <v-row>
+      <v-spacer />
+
+      <h2>
+        Bebas streaming tanpa iklan iklan club 😎
+      </h2>
+      <v-spacer />
+    </v-row>
     <v-row>
       <v-spacer />
 
       <h4>
-        this website still beta, because I'm the only one who built this website
-        alone, maybe i need a team
+        website ini bertujuan utk memudahkan pengguna untuk streaming/download film dan animasi/anime
+      </h4>
+      <v-spacer />
+    </v-row>
+        <v-row>
+      <v-spacer />
+
+      <h4>
+        Kelebihan: <br />
+        1. GRATIS <br />
+        2. No iklan <br />
+        3. Ui yang mudah <br />
+        4. Memudahkan pengguna <br />
+        5. Lengkap<br />
       </h4>
       <v-spacer />
     </v-row>
@@ -34,10 +54,8 @@
       <v-spacer />
 
       <h2>
-        Any question? ask me
-        <a href="https://wa.me/6281532631588" target="_blank" rel="noreferrer"
-          >here</a
-        >
+        Berikut tampilan gambar Home: 
+        <img src="/img/gambar.jpeg" />
       </h2>
       <v-spacer />
     </v-row>
