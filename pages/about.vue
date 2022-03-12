@@ -21,44 +21,6 @@
       </h3>
       <v-spacer />
     </v-row>
-        <v-row>
-      <v-spacer />
-
-      <h2>
-        Bebas streaming tanpa iklan iklan club 😎
-      </h2>
-      <v-spacer />
-    </v-row>
-    <v-row>
-      <v-spacer />
-
-      <h4>
-        website ini bertujuan utk memudahkan pengguna untuk streaming/download film dan animasi/anime
-      </h4>
-      <v-spacer />
-    </v-row>
-        <v-row>
-      <v-spacer />
-
-      <h4>
-        Kelebihan: <br />
-        1. GRATIS <br />
-        2. No iklan <br />
-        3. Ui yang mudah <br />
-        4. Memudahkan pengguna <br />
-        5. Lengkap<br />
-      </h4>
-      <v-spacer />
-    </v-row>
-    <v-row>
-      <v-spacer />
-
-      <h2>
-        Berikut tampilan gambar Home: 
-        <img src="/img/gambar.jpeg" />
-      </h2>
-      <v-spacer />
-    </v-row>
   </v-container>
 </template>
 
