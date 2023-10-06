@@ -1,6 +1,9 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deployed InfoAnime
 
+env:
+  URL: ${{secrets.URL}}
+
 on:
   # Runs on pushes targeting the default branch
   workflow_dispatch:
@@ -44,5 +47,4 @@ jobs:
       - name: Set domain
         id: set-domain
         run: |
-          echo "url=$(cat CNAME)" >> $GITHUB_OUTPUT
-        working-directory: .
+          echo "url=$URL" >> $GITHUB_OUTPUT
